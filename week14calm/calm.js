@@ -7,7 +7,8 @@ class Calm {
     static plus (){
             return +x + +y;
         }
-        static minus(){
+        static minus(){ 
+            
             return x - y;
         }
         static multiply(){
