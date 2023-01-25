@@ -1,44 +1,57 @@
 
 let x 
-let y 
-let solver ;
+let y
+let results = document.getElementById("result")
 
-function showsolver(){
-    document.getElementById("result").innerHTML = solver;
-};
+class Calm {
+    static plus (){
+             return +x + +y;
+           }
+           static minus(){
+             return x - y;
+           }
+           static multiply(){
+             return x * y;
+           }
+           static divide(){
+             return x / y;
+           }
+        }
+
+        function getNumber() {
+            x = document.getElementById("one").value;
+            y = document.getElementById("Two").value;
+        }
 
 function sum(){
-    x = document.getElementById("one").value;
-    y = document.getElementById("Two").value;
-    solver = Number(x) + Number(y);
-    showsolver();
+    getNumber();
+    let result = Calm.plus(x, y);
+    results.innerHTML = Calm.plus(x, y);
 }  
 
 function minus(){
-    x = document.getElementById("one").value;
-    y = document.getElementById("Two").value;
-    solver = x-y;
-    showsolver(); 
+    getNumber();
+    let result = Calm.minus(x, y);
+    results.innerHTML = Calm.minus(x, y); 
 }
 
 function divitiom(){
-    x = document.getElementById("one").value;
-    y = document.getElementById("Two").value;
-    solver = x/y;
+    getNumber()
+    let result = Calm.divide(x, y);
     let error = document.querySelector(".error");
    
     if (y == 0){
         error.textContent = "на ноль делить нельзя";      
     }
     else{
-        showsolver();
+        results.innerHTML = Calm.divide(x, y);
     }
     
 }
-
 function myltiply(){
-    x = document.getElementById("one").value;
-    y = document.getElementById("Two").value;
-    solver = x*y;
-    showsolver();
+    getNumber()
+    let result = Calm.multiply(x, y);
+    results.innerHTML = Calm.multiply(x, y);
 }
+
+
