@@ -5,18 +5,18 @@ let results = document.getElementById("result")
 
 class Calm {
     static plus (){
-             return +x + +y;
-           }
-           static minus(){
-             return x - y;
-           }
-           static multiply(){
-             return x * y;
-           }
-           static divide(){
-             return x / y;
-           }
+            return +x + +y;
         }
+        static minus(){
+            return x - y;
+        }
+        static multiply(){
+            return x * y;
+        }
+        static divide(){
+            return x / y;
+        }
+    }
 
         function getNumber() {
             x = document.getElementById("one").value;
@@ -38,8 +38,7 @@ function minus(){
 function divitiom(){
     getNumber()
     let result = Calm.divide(x, y);
-    let error = document.querySelector(".error");
-   
+    let error = document.querySelector(".error"); 
     if (y == 0){
         error.textContent = "на ноль делить нельзя";      
     }
