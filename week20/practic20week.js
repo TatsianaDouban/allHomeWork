@@ -21,7 +21,7 @@ const herousCollection = `[{
 
 document.addEventListener("DOMContentLoaded",function(){
     getHerous()
-});
+})
 
 function getHerous() {
     let herous = JSON.parse(herousCollection);
@@ -29,12 +29,12 @@ function getHerous() {
     if (collection){
         LikeCollection = JSON.parse(localStorage.getItem("LikeCollection")) 
     } else {
-    localStorage.setItem('LikeCollection', JSON.stringify([]));
-    
+    localStorage.setItem('LikeCollection', JSON.stringify([]));    
 }
+
 for (let i = 0; i < herous.length; i++){
     createHerous(herous[i])
-}
+   }
 }
 
 function createHerous(data){
@@ -42,8 +42,6 @@ function createHerous(data){
     let ul = document.createElement('ul');
     let li_name = ul.appendChild(document.createElement('li'));
 
-    let li_img = document.createElement("img");
-    li_img.src = data.src.jpg;
 
     li_name.classList.add('li_name');
     li_name.textContent = data.name;
@@ -53,6 +51,9 @@ function createHerous(data){
 
     let li_description = ul.appendChild(document.createElement('li'));
     li_description.textContent = data.description;
+
+    let li_img = document.createElement("img");
+    li_img.src = data.src.jpg;
 
     let li_reiting = ul.appendChild(document.createElement('li'));
     li_reiting.textContent = data.reiting.length;
@@ -67,20 +68,21 @@ function createHerous(data){
     }
     buttonLike.textContent = "like";
     li_like.appendChild(buttonLike);
+
     buttonLike.addEventListener("click",togglelike);
-    document.body.append(ul); 
+
+    document.body.appendChild(ul); 
 }
 
 function togglelike(event){
-    event.target.closest('.buttonlike').classList.add("liked");
-    toggleLocalSror(event.target.closest("ul").firstChild.textContent);
+    event.target.closest('.buttonlike').classList.toggle("liked");
+    toggleLocalSrorage(event.target.closest('ul').firstChild.textContent);
 }
 
-function toggleLocalSror(value){
+function  toggleLocalSrorage(value) {
     console.log(LikeCollection);
     let index = LikeCollection.indexOf(value);
-
-    if (index ==-1){
+    if (index === -1) {
         LikeCollection.push(value);
     }else{
         LikeCollection.slice(index,1);
