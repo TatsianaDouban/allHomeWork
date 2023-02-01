@@ -16,7 +16,7 @@ const herousCollection = `[{
     "src" : "https://n1s1.hsmedia.ru/7b/56/08/7b5608ec3df83d872fa1162fb9e32f28/547x397_0xac120002_1773711401540468871.jpg",
     "character" : " гений, миллиардер, плейбой, филантроп",
     "description" : "высокий уровень интеллекта, широкие познания науки и техники, связь со всемирной паутиной, бронекостюмы",
-    "reiting" : [1,2]
+    "reiting" : [1,2,3]
 }]`;
 
 document.addEventListener("DOMContentLoaded",function(){
@@ -69,7 +69,7 @@ function createHerous(data){
     buttonLike.textContent = "like";
     li_like.appendChild(buttonLike);
 
-    buttonLike.addEventListener("click",togglelike);
+    buttonLike.addEventListener("click", togglelike);
 
     document.body.appendChild(ul); 
 }
@@ -88,7 +88,7 @@ function  toggleLocalSrorage(value) {
         LikeCollection.slice(index,1);
 
     }
-    localStorage.setItem("LikeCollection".JSON.stringify(LikeCollection));
+    localStorage.setItem("LikeCollection", JSON.stringify(LikeCollection));
 }
 
 
